@@ -52,18 +52,67 @@
                                     "UPDATE {$wpdb->prefix}posts
                                     SET post_content = REPLACE(
                                         REPLACE(
-                                            REPLACE(post_content, %s, %s),
-                                            %s, %s
+                                            REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
+                                            '&nbsp;',
+                                            ''
                                         ),
-                                        %s, %s
+                                        %s,
+                                        %s
                                     )
-                                    WHERE ID = %d",
+                                    WHERE REPLACE(
+                                        REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
+                                        '&nbsp;',
+                                        ''
+                                    ) LIKE %s AND ID = %d",
                                     $buscar1,
                                     $sustituir1,
+                                    '%' . $buscar1 . '%',
+                                    $object_id
+                                )
+                            );
+                            $wpdb->query(
+                                $wpdb->prepare(
+                                    "UPDATE {$wpdb->prefix}posts
+                                    SET post_content = REPLACE(
+                                        REPLACE(
+                                            REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
+                                            '&nbsp;',
+                                            ''
+                                        ),
+                                        %s,
+                                        %s
+                                    )
+                                    WHERE REPLACE(
+                                        REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
+                                        '&nbsp;',
+                                        ''
+                                    ) LIKE %s AND ID = %d",
                                     $buscar2,
                                     $sustituir2,
+                                    '%' . $buscar2 . '%',
+                                    $object_id
+                                )
+                            );
+                            $wpdb->query(
+                                $wpdb->prepare(
+                                    "UPDATE {$wpdb->prefix}posts
+                                    SET post_content = REPLACE(
+                                        REPLACE(
+                                            REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
+                                            '&nbsp;',
+                                            ''
+                                        ),
+                                        %s,
+                                        %s
+                                    )
+                                    WHERE REPLACE(
+                                        REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
+                                        '&nbsp;',
+                                        ''
+                                    ) LIKE %s AND ID = %d",
                                     $buscar3,
                                     $sustituir3,
+                                    '%' . $buscar3 . '%',
                                     $object_id
                                 )
                             );

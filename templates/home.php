@@ -95,7 +95,7 @@
                         REPLACE(
                             REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                             '&nbsp;',
-                            ''
+                            ' '
                         ),
                         %s,
                         %s
@@ -103,7 +103,7 @@
                     WHERE REPLACE(
                         REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                         '&nbsp;',
-                        ''
+                        ' '
                     ) LIKE %s AND ID = %d",
                     $buscar1,
                     $sustituir1,
@@ -118,7 +118,7 @@
                         REPLACE(
                             REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                             '&nbsp;',
-                            ''
+                            ' '
                         ),
                         %s,
                         %s
@@ -126,7 +126,7 @@
                     WHERE REPLACE(
                         REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                         '&nbsp;',
-                        ''
+                        ' '
                     ) LIKE %s AND ID = %d",
                     $buscar2,
                     $sustituir2,
@@ -141,7 +141,7 @@
                         REPLACE(
                             REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                             '&nbsp;',
-                            ''
+                            ' '
                         ),
                         %s,
                         %s
@@ -149,7 +149,7 @@
                     WHERE REPLACE(
                         REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                         '&nbsp;',
-                        ''
+                        ' '
                     ) LIKE %s AND ID = %d",
                     $buscar3,
                     $sustituir3,

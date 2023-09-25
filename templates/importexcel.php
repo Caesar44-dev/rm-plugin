@@ -42,7 +42,7 @@
                         $sustituir2 = $row[4];
                         $buscar3 = $row[5];
                         $sustituir3 = $row[6];
-                        
+
                         $query = $wpdb->prepare("SELECT object_id FROM $table WHERE permalink = %s", $permalink);
                         $object_id = $wpdb->get_var($query);
 
@@ -54,7 +54,7 @@
                                         REPLACE(
                                             REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                                             '&nbsp;',
-                                            ''
+                                            ' '
                                         ),
                                         %s,
                                         %s
@@ -62,7 +62,7 @@
                                     WHERE REPLACE(
                                         REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                                         '&nbsp;',
-                                        ''
+                                        ' '
                                     ) LIKE %s AND ID = %d",
                                     $buscar1,
                                     $sustituir1,
@@ -77,7 +77,7 @@
                                         REPLACE(
                                             REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                                             '&nbsp;',
-                                            ''
+                                            ' '
                                         ),
                                         %s,
                                         %s
@@ -85,7 +85,7 @@
                                     WHERE REPLACE(
                                         REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                                         '&nbsp;',
-                                        ''
+                                        ' '
                                     ) LIKE %s AND ID = %d",
                                     $buscar2,
                                     $sustituir2,
@@ -100,7 +100,7 @@
                                         REPLACE(
                                             REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                                             '&nbsp;',
-                                            ''
+                                            ' '
                                         ),
                                         %s,
                                         %s
@@ -108,7 +108,7 @@
                                     WHERE REPLACE(
                                         REGEXP_REPLACE(post_content, '</?(s|em|mark|sup|sub|strong)[^>]*>', ''),
                                         '&nbsp;',
-                                        ''
+                                        ' '
                                     ) LIKE %s AND ID = %d",
                                     $buscar3,
                                     $sustituir3,
